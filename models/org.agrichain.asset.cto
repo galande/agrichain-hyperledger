@@ -1,0 +1,86 @@
+namespace org.agrichain.asset
+import org.agrichain.participant.*
+
+asset AgriCommodity identified by commodityId {
+  o String commodityId
+  o String commodityName
+  o CommodityType commodityType
+  o CommoditySubType commoditySubType
+  o String farm optional
+  o Double unitPrice
+  o String additionalInfo optional
+}
+
+enum CommodityType {
+  o Animal
+  o Fruit
+  o Food
+  o DiaryProducts
+  o Other
+}
+
+enum CommoditySubType {
+  o Cereals 
+  o Pulses 
+  o Forage
+  o OilSeeds
+  o SpecialCrops
+  o Poultry 
+  o Livestock 
+  o Milk
+  o Butter 
+  o Cheese 
+  o IceCream
+  o Apples
+  o Citrus 
+  o StoneFruit
+  o TropicalAndExotic
+  o Berries 
+  o Melons
+  o TomatoesAndAvocados
+  o Other
+}
+
+asset BusinessContract identified by businessContractId {
+  o String businessContractId
+  --> Farmer farmer
+  --> Importer importer
+  o DateTime contractDateTime
+  --> AgriCommodity[] commodities optional
+  o BusinessStatus businessStatus
+}
+
+enum BusinessStatus {
+  o IN_PROCESS
+  o ACCEPTED
+  o CANCELLED
+  o COMPLETED
+}
+
+asset ShipementContract identified by shipementContractId {
+  o String shipementContractId
+  --> BusinessContract businessForShipment
+  --> Shipper shipper 
+  o String pickUpLocation
+  o String dropLocation
+  o DateTime arrivalDateTime
+  o Double contractPrice optional
+  o Double minTemperature optional
+  o Double maxTemperature optional
+  o Double minPenaltyFactor optional
+  o Double maxPenaltyFactor optional
+}
+
+asset Shipement identified by shipmentId {
+  o String shipmentId
+  --> ShipementContract shipementContract
+  o ShipmentStatus status
+  o String currentLocation optional
+  //o TemperatureReading[] temperatureReadings optional
+}
+
+enum ShipmentStatus {
+  o CREATED
+  o IN_TRANSIT
+  o ARRIVED
+}

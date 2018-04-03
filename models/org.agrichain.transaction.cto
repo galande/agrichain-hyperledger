@@ -1,0 +1,62 @@
+namespace org.agrichain.transaction
+import org.agrichain.participant.*
+import org.agrichain.asset.BusinessContract
+import org.agrichain.asset.ShipementContract
+
+transaction CreateAgriCommodity {
+  o String commodityId
+  o String commodityName
+  o String commodityType
+  o String commoditySubType
+  o String farm
+  o Double unitPrice
+  o String additionalInfo
+} 
+
+transaction CreateBusinessContract {
+  o String businessContractId
+  o String farmerAadharId
+  o String importerAadharId
+  o DateTime contractDateTime
+  o String businessStatus
+}
+
+transaction ChangeBusinessContractStatus {
+  o String businessContractId
+  o String businessStatus
+}
+
+transaction CreateShipmentContract {
+  o String shipementContractId
+  --> BusinessContract businessForShipment
+  --> Shipper shipper
+  o String pickUpLocation
+  o String dropLocation
+  o DateTime arrivalDateTime
+  o Double contractPrice optional
+  o Integer minTemperature optional
+  o Integer maxTemperature optional
+  o Integer minPenaltyFactor optional
+  o Integer maxPenaltyFactor optional
+}
+
+transaction CreateShipement {
+  o String shipmentId
+  --> ShipementContract shipementContract
+  o String status 
+}
+
+transaction EnterTempRatureReadingToShipment {
+  o String shipmentId
+  o Integer currentTemprature
+}
+
+transaction ChangeShipemtStatusAndLocation {
+  o String shipmentId
+  o String status
+  o String currentLocation
+}
+
+transaction AcceptShipement {
+  o String shipmentId
+}

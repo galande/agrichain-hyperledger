@@ -1,0 +1,52 @@
+{
+  "$class": "org.agrichain.transaction.CreateAgriCommodity",
+  "commodityId": "BuffalowMilk-DiaryProducts-2018-03-04",
+  "commodityName": "BuffalowMilk",
+  "commodityType": "DiaryProducts",
+  "commoditySubType": "Milk",
+  "farm": "Sangli",
+  "unitPrice": 60,
+  "additionalInfo": "Buffalow milk"
+}
+
+------------
+{
+  "$class": "org.agrichain.transaction.CreateBusinessContract",
+  "businessContractId": "BUSCON-001",
+  "farmerAadharId": "123456789123",
+  "importerAadharId": "987654321987",
+  "contractDateTime": "2018-04-03T07:16:43.250Z",
+  "businessStatus": "IN_PROCESS"
+}
+
+---------------------
+{
+  "$class": "org.agrichain.transaction.ChangeBusinessContractStatus",
+  "businessContractId": "BUSCON-001",
+  "businessStatus": "ACCEPTED"
+}
+---------------
+{
+  "$class": "org.agrichain.transaction.CreateShipmentContract",
+  "shipementContractId": "SHICON-001",
+  "businessForShipment": "resource:org.agrichain.asset.BusinessContract#BUSCON-001",
+  "shipper": "resource:org.agrichain.participant.Shipper#678901234567",
+  "pickUpLocation": "SANGLI",
+  "dropLocation": "PUNE",
+  "arrivalDateTime": "2018-04-06T09:20:55.251Z"
+}
+----
+{
+  "$class": "org.agrichain.transaction.CreateShipement",
+  "shipmentId": "SHIP-001",
+  "shipementContract": "resource:org.agrichain.asset.ShipementContract#SHICON-001",
+  "status": "CREATED"
+}
+
+-----------------
+{
+  "$class": "org.agrichain.transaction.ChangeShipemtStatusAndLocation",
+  "shipmentId": "SHIP-001",
+  "status": "IN_TRANSIT",
+  "currentLocation": "SATARA"
+}
