@@ -1,6 +1,5 @@
 namespace org.agrichain.asset
 import org.agrichain.participant.*
-import org.agrichain.transaction.*
 
 asset AgriCommodity identified by commodityId {
   o String commodityId
@@ -84,4 +83,9 @@ enum ShipmentStatus {
   o CREATED
   o IN_TRANSIT
   o ARRIVED
+}
+
+concept TemperatureReading {
+  o Integer temperature
+  o DateTime temperatureTakenTime
 }
