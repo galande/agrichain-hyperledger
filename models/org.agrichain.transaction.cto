@@ -46,7 +46,7 @@ transaction CreateShipement {
   o String status 
 }
 
-transaction TemperatureReading {
+transaction AddTemperatureReading {
   o String shipmentId
   o Integer currentTemprature
 }
@@ -59,9 +59,4 @@ transaction ChangeShipemtStatusAndLocation {
 
 transaction AcceptShipement {
   o String shipmentId
-}
-
-event AddedTemperatureReadingToShipemt {
-  o String shipmentId
-  o Integer temprature
 }

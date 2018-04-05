@@ -1,0 +1,30 @@
+namespace org.agrichain.event
+
+event BusinessContractCreated {
+  o String businessContractId
+  o String businessStatus
+}
+
+event AddedTemperatureReadingToShipemt {
+  o String shipmentId
+  o Integer temprature
+}
+
+event ModifiedBusinessContractStatus {
+  o String businessContractId
+  o String previousStatus
+  o String currentStatus
+  o String modifiedBy
+}
+
+event ShipmentCreated {
+  o String shipmentId
+  o String shipmentContract
+}
+
+event ModifiedShipmentStatus {
+  o String shipmentId
+  o String previousStatus
+  o String currentStatus
+  o String modifiedBy
+}
