@@ -1,5 +1,6 @@
 namespace org.agrichain.asset
 import org.agrichain.participant.*
+import org.agrichain.transaction.*
 
 asset AgriCommodity identified by commodityId {
   o String commodityId
@@ -76,7 +77,7 @@ asset Shipement identified by shipmentId {
   --> ShipementContract shipementContract
   o ShipmentStatus status
   o String currentLocation optional
-  //o TemperatureReading[] temperatureReadings optional
+  o TemperatureReading[] temperatureReadings optional
 }
 
 enum ShipmentStatus {
