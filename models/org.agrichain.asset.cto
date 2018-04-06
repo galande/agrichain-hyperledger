@@ -7,7 +7,8 @@ asset AgriCommodity identified by commodityId {
   o CommodityType commodityType
   o CommoditySubType commoditySubType
   o String farm optional
-  o Double unitPrice
+  o Double unitPrice optional
+  o String quantity optional
   o String additionalInfo optional
 }
 
