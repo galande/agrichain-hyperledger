@@ -2,6 +2,7 @@ namespace org.agrichain.transaction
 import org.agrichain.participant.*
 import org.agrichain.asset.BusinessContract
 import org.agrichain.asset.ShipementContract
+import org.agrichain.asset.AgriCommodity
 
 transaction CreateAgriCommodity {
   o String commodityId
@@ -59,4 +60,9 @@ transaction ChangeShipemtStatusAndLocation {
 
 transaction AcceptShipement {
   o String shipmentId
+}
+
+transaction AddCommodityToBusinessContract {
+  o String businessContractId
+  --> AgriCommodity commodity
 }

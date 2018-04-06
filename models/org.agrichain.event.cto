@@ -28,3 +28,8 @@ event ModifiedShipmentStatus {
   o String currentStatus
   o String modifiedBy
 }
+
+event CommodityAddedToBusinessContract {
+  o String businessContractId
+  o String commodity
+}
