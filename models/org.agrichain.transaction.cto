@@ -9,6 +9,7 @@ transaction CreateAgriCommodity {
   o String commodityName
   o String commodityType
   o String commoditySubType
+  o String farmerId
   o String farm
   o Double unitPrice
   o String additionalInfo

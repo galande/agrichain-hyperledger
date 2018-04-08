@@ -6,6 +6,7 @@ asset AgriCommodity identified by commodityId {
   o String commodityName
   o CommodityType commodityType
   o CommoditySubType commoditySubType
+  --> Farmer owner
   o String farm optional
   o Double unitPrice optional
   o String quantity optional
