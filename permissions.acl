@@ -16,7 +16,7 @@ rule NetworkAdminSystem {
 
 rule ParticipantReadOnly{
   description: "Grant business network READ only access to all participant"
-  participant: "org.agrichain.participant"
+  participant: "org.agrichain.participant.*"
   operation: READ
   resource: "org.agrichain.**"
   action: ALLOW
